@@ -1,0 +1,54 @@
+
+/*
+ *			    Example Install Resource File
+ */
+
+
+#include  "example.h"                               /* Local definitions      */
+
+
+/*
+ *			    String Table
+ */
+
+
+STRINGTABLE
+{
+ MSG001, "Unable to create the Sample directory due to an error."
+ MSG002, "Unable to copy files to the Sample directory due to  an error."
+ MSG003, "Error creating  a new Program Group.  "
+ MSG004, "Failed.  Unable to add Sample Program entry into  Example Group."
+ MSG005, "Drive not ready. Please insert diskette in drive and press RETRY."
+ MSG006, "Failed.  Unable to add Sample Program entry due to a Duplicate Title."
+ MSG007, "The Example program and file installation is complete."
+ MSG008, "Do you wish to terminate the program installation?"
+ MSG009, "Unable to create the directory due to a PATH NOT FOUND error."
+}
+
+
+/*
+ *			    Dialog Template
+ */
+
+
+DLGTEMPLATE IDDLG_CRTDIR PRELOAD MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Create Directory", IDDLG_CRTDIR, -8, -24, 229, 59,
+		FS_NOBYTEALIGN | FS_DLGBORDER | WS_SAVEBITS,
+		FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+	CONTROL "Enter the new Directory's path", -1, 38, 43, 162, 8, WC_STATIC,
+		 SS_TEXT | DT_CENTER | DT_TOP | WS_VISIBLE
+	CONTROL "Path:", -1, 8, 27, 25, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+		DT_TOP | WS_VISIBLE
+	CONTROL "", IDC_DIRPATH, 38, 27, 162, 8, WC_ENTRYFIELD, ES_LEFT |
+		ES_AUTOSCROLL | ES_MARGIN | WS_GROUP | WS_TABSTOP | WS_VISIBLE
+	CONTROL "~Create", IDC_OK, 6, 4, 38, 12, WC_BUTTON, BS_PUSHBUTTON |
+		BS_DEFAULT | WS_GROUP | WS_TABSTOP | WS_VISIBLE
+	CONTROL "Cancel", IDC_CANCEL, 56, 4, 38, 12, WC_BUTTON, BS_PUSHBUTTON |
+		WS_VISIBLE
+	CONTROL "Help", IDC_HELP, 106, 4, 38, 12, WC_BUTTON, BS_PUSHBUTTON |
+		WS_VISIBLE
+    END
+END
+

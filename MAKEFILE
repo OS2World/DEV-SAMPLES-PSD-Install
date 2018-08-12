@@ -1,0 +1,40 @@
+#===================================================================
+#	      Example Installation Program Make File
+#		     IBM C/2 Version 1.10
+#
+#===================================================================
+
+CC = cl /c  /Alfu /G2s /W3 /Fs
+
+#===================================================================
+#
+#  Default inference rules
+#
+#===================================================================
+
+.c.obj:
+    $(CC) $*.c
+
+.asm.obj:
+    masm $*.asm;
+
+.rc.res:
+    rc	$*.rc
+
+#===================================================================
+#
+#  Dependencies
+#
+#===================================================================
+
+example.res: example.rc example.exe
+    rc	example.rc
+
+example.exe: example.obj  example.lnk example.def
+    link /NOD @example.lnk
+
+example.obj: example.c example.h
+    $(CC) example.c
+
+
+

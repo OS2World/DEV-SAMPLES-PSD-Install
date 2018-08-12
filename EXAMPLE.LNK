@@ -1,0 +1,7 @@
+example.obj
+example/align:16
+example/map
+os2.lib+
+llibcp.lib
+example.def
+
